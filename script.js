@@ -4,14 +4,20 @@
 
         function saveRecord() {
             const name = document.getElementById('name').value;
+            const mobileno = document.getElementById('mobileno').value;
             const date = document.getElementById('date').value;
+            const cycle = document.getElementById('cycle').value;
+            const amount = document.getElementById('amount').value;
+            const prod = document.getElementById('prod').value;
+            const details = document.getElementById('details').value;
 
-            if(!name || !date) { alert("Name and Date are required!"); return; }
+            if(!name || !date || !cycle || !amount || !prod || !details || !mobileno) { alert("Name and Date are required!"); return; }
 
             const data = {
                 id: Date.now(),
                 name: name,
                 date: date,
+                mobileno:mobileno,
                 cycle: document.getElementById('cycle').value,
                 amount: document.getElementById('amount').value,
                 prod: document.getElementById('prod').value,
@@ -57,6 +63,7 @@
         function showInAnotherDisplay(r) {
             document.getElementById('display-content').innerHTML = `
                 <p><b>Customer:</b> ${r.name}</p>
+                <p><b>Mobile Number:</b> ${r.mobileno}</p>
                 <p><b>Product:</b> ${r.prod}</p>
                 <p><b>Details:</b> ${r.details}</p>
                 <p><b>Amount:</b> ${r.amount || '0.00'}</p>
